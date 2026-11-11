@@ -19,6 +19,6 @@
   # flakeModules = { }; # flake-parts modules
   overlays = import ./overlays; # nixpkgs overlays
 
-  # some-qt5-package = pkgs.libsForQt5.callPackage ./pkgs/some-qt5-package { };
-  # ...
+  # The dromas command, written by dromas-client's release (GoReleaser's nix pipe).
+  dromas = pkgs.callPackage ./pkgs/dromas { };
 }
