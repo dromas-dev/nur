@@ -1,5 +1,5 @@
 {
-  description = "My personal NUR repository";
+  description = "The dromas command, a client of Dromas (dromas.dev)";
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
   outputs = { self, nixpkgs }:
     let
