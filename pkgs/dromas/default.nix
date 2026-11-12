@@ -9,22 +9,22 @@
 let
   inherit (stdenvNoCC.hostPlatform) system;
   shaMap = {
-    x86_64-linux = "03wk0am5i9k6dwixq4k9y4ch8l60r9rj6s0rqwvd8wjf0djc1a1d";
-    aarch64-linux = "1ds0bqs36li694pcw4bqz5hq8djigdg9iv7fnqggg7p6d2d7q8i2";
-    x86_64-darwin = "0d8r16bk4ydj2w7blc70rrz3a4xqxz0003b66c9pvkzkwja9bq4c";
-    aarch64-darwin = "0q81bj1zsyggf1dgwxkcsvdqj6rz99ynglafmj17krcipq41mgrh";
+    x86_64-linux = "1wg2qmi2ckf57psphpim3jyvlxqa2bszqnid1l8qik3whcrzibyl";
+    aarch64-linux = "1l7ahij7z6hjn8x8sqmyaibpc9dyii7ab1cmk2wnwm7dkqzw30mq";
+    x86_64-darwin = "0l5dq9751pmixbpsklapq6v3s3jrwqa8ib3a6y6h4dbxqc28p7q2";
+    aarch64-darwin = "01pxdvzngrahqd8p7r3017kq0kjhxjsx8zzlsfj3zpvxj2qr9bic";
   };
 
   urlMap = {
-    x86_64-linux = "https://github.com/dromas-dev/dromas-client/releases/download/v0.6.2/dromas_0.6.2_linux_amd64.tar.gz";
-    aarch64-linux = "https://github.com/dromas-dev/dromas-client/releases/download/v0.6.2/dromas_0.6.2_linux_arm64.tar.gz";
-    x86_64-darwin = "https://github.com/dromas-dev/dromas-client/releases/download/v0.6.2/dromas_0.6.2_darwin_amd64.tar.gz";
-    aarch64-darwin = "https://github.com/dromas-dev/dromas-client/releases/download/v0.6.2/dromas_0.6.2_darwin_arm64.tar.gz";
+    x86_64-linux = "https://github.com/dromas-dev/dromas-client/releases/download/v0.6.3/dromas_0.6.3_linux_amd64.tar.gz";
+    aarch64-linux = "https://github.com/dromas-dev/dromas-client/releases/download/v0.6.3/dromas_0.6.3_linux_arm64.tar.gz";
+    x86_64-darwin = "https://github.com/dromas-dev/dromas-client/releases/download/v0.6.3/dromas_0.6.3_darwin_amd64.tar.gz";
+    aarch64-darwin = "https://github.com/dromas-dev/dromas-client/releases/download/v0.6.3/dromas_0.6.3_darwin_arm64.tar.gz";
   };
 in
 stdenvNoCC.mkDerivation {
   pname = "dromas";
-  version = "0.6.2";
+  version = "0.6.3";
   src = fetchurl {
     url = urlMap.${system};
     sha256 = shaMap.${system};
@@ -44,7 +44,7 @@ stdenvNoCC.mkDerivation {
   '';
 
   meta = {
-    description = "The dromas command, a client of Dromas, end-to-end encrypted mailboxes for bots.";
+    description = "The dromas command, a client of Dromas, end-to-end encrypted messaging for bots.";
     homepage = "https://dromas.dev";
     license = lib.licenses.asl20;
     mainProgram = "dromas";
