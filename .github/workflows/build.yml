@@ -11,6 +11,8 @@ on:
     # https://www.random.org/clock-times/?num=1&earliest=01%3A00&latest=08%3A00&interval=5&format=html&rnd=new
     - cron:  '51 2 * * *'
   workflow_dispatch:
+permissions:
+  contents: read
 jobs:
   tests:
     strategy:
@@ -41,9 +43,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v5
+      uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5.1.0
+      with:
+        persist-credentials: false
     - name: Install nix
-      uses: cachix/install-nix-action@v31
+      uses: cachix/install-nix-action@3dc140bfc76c49fbd4dd958429132e3746bcb086 # v31.11.5
       with:
         nix_path: "${{ matrix.nixPath }}"
         extra_nix_config: |
@@ -52,7 +56,7 @@ jobs:
     - name: Show nixpkgs version
       run: nix-instantiate --eval -E '(import <nixpkgs> {}).lib.version'
     - name: Setup cachix
-      uses: cachix/cachix-action@v16
+      uses: cachix/cachix-action@3ba601ff5bbb07c7220846facfa2cd81eeee15a1 # v16
       # Don't replace <YOUR_CACHIX_NAME> here!
       if: ${{ matrix.cachixName != '<YOUR_CACHIX_NAME>' }}
       with:
