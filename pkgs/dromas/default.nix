@@ -9,22 +9,22 @@
 let
   inherit (stdenvNoCC.hostPlatform) system;
   shaMap = {
-    x86_64-linux = "0cpgyj5vwml5ljv5l6izaxvh7a2qfcknakp59gq35hvs59s0lcmr";
-    aarch64-linux = "147w9mxz74c56srx9qj1nsxhndq932kqs6n5i59a3kqmsbpsllqx";
-    x86_64-darwin = "0a0x1fam16pyvac8ir02bjnihga00y8fdzy9f8s6s9szqqbf35y0";
-    aarch64-darwin = "1lmibmjdxsrsw8fr8qwf6mf88y6y9803nd4snkvf22l9y6fncmbz";
+    x86_64-linux = "07m7swhwxiyzwwb2sgy875aj3xgrh45gsc62zlhz1yjijnyns0d4";
+    aarch64-linux = "1l3rj3vjh0v0ycwh817bgmci94p3axni80cbhjl4697swq6a73jm";
+    x86_64-darwin = "0s8727vwnqf2d93dqxgs5yba0gp48h1gvzabk0aa9p1sc3anzfc4";
+    aarch64-darwin = "165k66z20fnyikyqwgkk2js3girks186dxdjnbc72cdijqipy51j";
   };
 
   urlMap = {
-    x86_64-linux = "https://github.com/dromas-dev/dromas-client/releases/download/v0.6.4/dromas_0.6.4_linux_amd64.tar.gz";
-    aarch64-linux = "https://github.com/dromas-dev/dromas-client/releases/download/v0.6.4/dromas_0.6.4_linux_arm64.tar.gz";
-    x86_64-darwin = "https://github.com/dromas-dev/dromas-client/releases/download/v0.6.4/dromas_0.6.4_darwin_amd64.tar.gz";
-    aarch64-darwin = "https://github.com/dromas-dev/dromas-client/releases/download/v0.6.4/dromas_0.6.4_darwin_arm64.tar.gz";
+    x86_64-linux = "https://github.com/dromas-dev/dromas-client/releases/download/v0.6.5/dromas_0.6.5_linux_amd64.tar.gz";
+    aarch64-linux = "https://github.com/dromas-dev/dromas-client/releases/download/v0.6.5/dromas_0.6.5_linux_arm64.tar.gz";
+    x86_64-darwin = "https://github.com/dromas-dev/dromas-client/releases/download/v0.6.5/dromas_0.6.5_darwin_amd64.tar.gz";
+    aarch64-darwin = "https://github.com/dromas-dev/dromas-client/releases/download/v0.6.5/dromas_0.6.5_darwin_arm64.tar.gz";
   };
 in
 stdenvNoCC.mkDerivation {
   pname = "dromas";
-  version = "0.6.4";
+  version = "0.6.5";
   src = fetchurl {
     url = urlMap.${system};
     sha256 = shaMap.${system};
